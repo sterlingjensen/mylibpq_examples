@@ -1,0 +1,9 @@
+I was searching for examples of libpq usage in c and found very few results, so I decided to throw together an example of several insertion method in the form of a micro benchmark.  The benchmark was secondary to just getting the example code out there, so take the results with a grain of salt (I don't vacuum between queries, etc).  The following command execution functions are used:
+
+Pqexec
+PQexecParams
+PQexecPrepared
+
+These are executed with both unix sockets and tcp/ip connections.  I was specifically interested in bulk inserts, so I've got some of that in there as well.  I've made no attempt to make this portable for anything outside of linux, postgresql is set to authenticate local connections by username.
+
+Built with: gcc -O3 -g3 -ggdb -Wall -Wextra -Werror -pedantic -std=gnu99 -lpq -o inserts inserts.c
