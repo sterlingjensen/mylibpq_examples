@@ -338,7 +338,7 @@ int main(int argc, char **argv)
 
    avg = 0;
    for(int i = 0; i < TRIALS; i++)
-      avg = test_insert(&conn_unixsocket, df);
+      avg += test_insert(&conn_unixsocket, df);
    avg = avg / TRIALS;
    printf("%.4f: Simple insert per row, unix socket\n",avg);
 
@@ -368,7 +368,7 @@ int main(int argc, char **argv)
 
    avg = 0;
    for(int i = 0; i < TRIALS; i++)
-      avg = test_insert(&conn_tcpip, df);
+      avg += test_insert(&conn_tcpip, df);
    avg = avg / TRIALS;
    printf("%.4f: Simple insert per row, tcpip\n",avg);
    avg = 0;
